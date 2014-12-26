@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Regards - Gestion des animaux</title>
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="views/main.css">
+    </head>
+
+    <body>
+		<div id="header" class="page-header">
+			<h1>Gestion des animaux<small> - Regards</small></h1>
+		</div>
+		<div id="main" style="margin-top:15px"></div>
+		
+		<script type="text/tempate" id="composite-template">
+			<div class="panel panel-default">
+			  	<div class="panel-heading">
+					<a href="#create" class="btn btn-primary">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter
+					</a>
+				</div>
+				<table class="table table-bordered" style="margin-top:15px; margin-bottom:15px">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Description</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+					</tbody>
+				</table>
+			  	<div class="panel-heading">
+					<a href="#create" class="btn btn-primary">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter
+					</a>
+				</div>
+			</div>
+		</script>
+		
+		<script type="text/template" id="item-template">
+			<td><span id="name">{{name}}</span></td>
+			<td>{{desc}}</td>
+			<td><a href="#update/{{id}}">Editer</a> - <a href="#" id="delete">Supprimer</a></td>
+		</script>
+		
+		<script type ="text/template" id="update-template">
+			<fieldset>
+
+				<legend>Edition</legend>
+
+				<div class="control-group" style="margin-top: 15px">
+					<label class="control-label">Type</label>
+					<div class="controls">
+						<select name="type" id="type">
+							<option value="bird">Oiseau</option>
+							<option value="reptil">Réptile</option>
+							<option value="mammal">Mammifère</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+				  	<label class="control-label" for="name">Nom</label>
+				  	<div class="controls">
+				    	<input id="name" name="name" type="text" value="{{name}}">
+				  	</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+					<label class="control-label">Genre du nom</label>
+					<div class="controls">
+						<select name="gender" id="gender">
+							<option value="male">Masculin</option>
+							<option value="female">Féminin</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+					<div class="control-group" style="margin-top: 15px">
+					  	<label class="control-label" id="description" for="description"></label>
+					  	<div class="controls">
+					    	<input id="description" name="feathers" type="text">
+					  	</div>
+					</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+					<button class="btn btn-primary" id="back">
+						<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Retour
+					</button>
+					<button class="btn btn-success" id='save'>
+						<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Sauvegarder
+					</button>
+				</div>
+				
+			</fieldset>
+		</script>
+		
+		<script type="text/template" id="create-template">
+			<fieldset>
+
+				<legend>Créer un nouvel animal</legend>
+				
+				<div class="control-group" style="margin-top: 15px">
+					<label class="control-label">Type</label>
+					<div class="controls">
+						<select name="type" id="type">
+							<option value="bird">Oiseau</option>
+							<option value="reptil">Réptile</option>
+							<option value="mammal">Mammifère</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+				  	<label class="control-label" for="name">Nom</label>
+				  	<div class="controls">
+				    	<input id="name" name="name" type="text">
+				  	</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+					<label class="control-label">Genre du nom</label>
+					<div class="controls">
+						<select name="gender" id="gender">
+							<option value="male">Masculin</option>
+							<option value="female">Féminin</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="control-group" style="margin-top: 15px">
+				  	<label class="control-label" id="description" for="description"></label>
+				  	<div class="controls">
+				    	<input id="description" name="" type="text">
+				  	</div>
+				</div>
+				
+				<div class="control-group" style="margin-top: 15px">
+					<div class="controls">
+						<button class="btn btn-primary" id="back">
+							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Retour
+						</button>
+						<button class="btn btn-success" id='save'>
+							<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Sauvegarder
+						</button>
+					</div>
+				</div>
+				
+			</fieldset>
+		</script>
+		
+        <script data-main="scripts/init" src="vendor/requirejs/require.js"></script>
+    </body>
+
+	<footer id="footer">
+		<p class="text-right"><small>© <a href="mailto:julien@cavandoli.net">Julien Cavandoli</a> - 2014</small></p>
+	</footer>
+</html>

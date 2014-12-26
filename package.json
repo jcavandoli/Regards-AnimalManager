@@ -1,0 +1,12 @@
+{
+  "name": "Regards-AnimalManager",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "~3.2.4",
+    "request": "~2.21.0",
+    "nstore": "latest"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

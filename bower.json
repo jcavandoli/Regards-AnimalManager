@@ -1,0 +1,16 @@
+{
+  "name": "Regards-AnimalManager",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "latest",
+    "backbone": "latest",
+    "backbone.marionette": "latest",
+    "backbone.wreqr": "latest",
+    "backbone.babysitter": "latest",
+    "handlebars": "latest",
+    "underscore": "latest",
+    "requirejs": "~2.1.15",
+    "bootstrap": "~3.2.0"
+  }
+}
+
