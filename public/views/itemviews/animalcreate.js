@@ -6,36 +6,36 @@ function(Backbone, Handlebars) {
     ui: {
       dataFields: 'input',
       type: '#type',
-			gender: '#gender',
+      gender: '#gender',
       saveButton: 'button#save',
-			backButton: 'button#back',
-			descriptionLabel: 'label#description',
-			descriptionInput: 'input#description'
+      backButton: 'button#back',
+      descriptionLabel: 'label#description',
+      descriptionInput: 'input#description'
     },
     events: {
       'click @ui.saveButton': 'save',
-			'click @ui.backButton': 'back',
+      'click @ui.backButton': 'back',
       'change @ui.type': 'selectType'
     },
-		back: function() {
-			Backbone.history.history.back();
-		},
+    back: function() {
+      Backbone.history.history.back();
+    },
     save: function() {
-			var self = this;
+      var self = this;
       this.ui.dataFields.each(function() {
         // Each attribute name is the property name of the object
         self.model.set($(this).attr('name'), $(this).val());
       });
-			
-			// Set the value from the selected type
-			this.model.set('type', this.ui.type.val());
-			
-			// Set the value from the selected type
-			this.model.set('gender', $(this.ui.gender).val());
+      
+      // Set the value from the selected type
+      this.model.set('type', this.ui.type.val());
+      
+      // Set the value from the selected type
+      this.model.set('gender', $(this.ui.gender).val());
 
       this.model.save();
 
-			Backbone.history.history.back();
+      Backbone.history.history.back();
     },
     selectType: function() {
       var type = $(this.ui.type).val();

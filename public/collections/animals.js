@@ -13,7 +13,7 @@ function(Backbone, Bird, Mammal, Reptil, Animal) {
       }
     },
     url: 'animals',
-		urlRoot: 'animals'
+    urlRoot: 'animals'
   });
   return AnimalsCollection;
 });

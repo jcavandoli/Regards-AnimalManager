@@ -6,51 +6,51 @@ function(Backbone, Handlebars) {
     ui: {
       dataFields: 'input',
       type: '#type',
-			gender: '#gender',
+      gender: '#gender',
       saveButton: 'button#save',
-			backButton: 'button#back',
-			descriptionLabel: 'label#description',
-			descriptionInput: 'input#description'
+      backButton: 'button#back',
+      descriptionLabel: 'label#description',
+      descriptionInput: 'input#description'
     },
     events: {
       'click @ui.saveButton': 'save',
-			'click @ui.backButton': 'back',
+      'click @ui.backButton': 'back',
       'change @ui.type': 'selectType'
     },
-		back: function() {
-			Backbone.history.history.back();
-		},
+    back: function() {
+      Backbone.history.history.back();
+    },
     save: function() {
-			var type = $(this.ui.type).val();
+      var type = $(this.ui.type).val();
 
-			if(this.model.get('type') !== type) { // Type changed
-				// Remove old specific type property
-				if(this.model.get('type') === 'bird') {
-					this.model.unset('feathers');
-				} else if(this.model.get('type') === 'reptil') {
-					this.model.unset('scale');
-				} else {
-					this.model.unset('fur');
-				}
-			}
+      if(this.model.get('type') !== type) { // Type changed
+        // Remove old specific type property
+        if(this.model.get('type') === 'bird') {
+          this.model.unset('feathers');
+        } else if(this.model.get('type') === 'reptil') {
+          this.model.unset('scale');
+        } else {
+          this.model.unset('fur');
+        }
+      }
 
-			this.model.unset('desc');
-			
+      this.model.unset('desc');
+      
       var self = this;
       this.ui.dataFields.each(function() {
         // Each attribute name is the property name of the object
         self.model.set($(this).attr('name'), $(this).val());
       });
 
-			// Get and set the value from the selected type
-			self.model.set('type', $(this.ui.type).val());
-			
-			// Get and set the value from the selected type
-			self.model.set('gender', $(this.ui.gender).val());
+      // Get and set the value from the selected type
+      self.model.set('type', $(this.ui.type).val());
+      
+      // Get and set the value from the selected type
+      self.model.set('gender', $(this.ui.gender).val());
 
       self.model.save();
 
-			Backbone.history.history.back()
+      Backbone.history.history.back()
     },
     selectType: function() {
       var type = $(this.ui.type).val();
@@ -64,26 +64,26 @@ function(Backbone, Handlebars) {
       this.ui.descriptionInput.attr('name', descriptionName.propertyName);
     },
     onRender: function() {
-			var self = this;
-			
-			// Loop throught the options to set the current type selected
-			this.ui.type.find('option').each(function(i, opt) {
-			    if(opt.value === self.model.get('type')) {
-						$(opt).attr('selected', 'selected');
-					}
-			});
+      var self = this;
+      
+      // Loop throught the options to set the current type selected
+      this.ui.type.find('option').each(function(i, opt) {
+          if(opt.value === self.model.get('type')) {
+            $(opt).attr('selected', 'selected');
+          }
+      });
 
-			// Loop throught the options to set the current gender selected
-			this.ui.gender.find('option').each(function(i, opt) {
-				if(opt.value === self.model.get('gender')) {
-					$(opt).attr('selected', 'selected');
-				}
-			});
-			
-			var descriptionName = getDescriptionName(this.model.get('type'));
+      // Loop throught the options to set the current gender selected
+      this.ui.gender.find('option').each(function(i, opt) {
+        if(opt.value === self.model.get('gender')) {
+          $(opt).attr('selected', 'selected');
+        }
+      });
+      
+      var descriptionName = getDescriptionName(this.model.get('type'));
 
-			this.ui.descriptionInput.attr('value', this.model.get(descriptionName.propertyName));
-			
+      this.ui.descriptionInput.attr('value', this.model.get(descriptionName.propertyName));
+      
       this.selectType();
     }
   });

@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: '/',
+  baseUrl: '/',
   deps: ['backbone.marionette', 'scripts/main'],
   paths: {
     'jquery': '../vendor/jquery/dist/jquery',

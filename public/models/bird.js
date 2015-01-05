@@ -21,8 +21,8 @@ define(['backbone', 'models/animal'], function(Backbone, Animal) {
       return this.speak();
     },
     url: function() {
-			return this.id ? '/animals/' + this.id : '/animals';
-		}
+      return this.id ? '/animals/' + this.id : '/animals';
+    }
   });
   
   return BirdModel;

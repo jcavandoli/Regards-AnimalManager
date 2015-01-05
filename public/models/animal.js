@@ -33,8 +33,8 @@ define(['backbone', 'underscore'], function(Backbone, _) {
       return 'Je suis ' + this.getGenderSpecificPronoun() + ' ' + this.get('name');
     },
     url: function() {
-			return this.id ? '/animals/' + this.id : '/animals';
-		}
+      return this.id ? '/animals/' + this.id : '/animals';
+    }
   });
   
   return AnimalModel;
